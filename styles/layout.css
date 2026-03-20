@@ -1,0 +1,160 @@
+/* ============================================================
+   LAYOUT.CSS — Page wrapper, header, bento grid, responsive
+   ============================================================ */
+
+/* ── Page wrapper ────────────────────────────────────────── */
+.page-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px var(--gap);
+}
+
+/* ── Site header ─────────────────────────────────────────── */
+.site-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition);
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.site-logo {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  min-height: 1.5em;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+#clock-time {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+#clock-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.theme-btn:hover {
+  background-color: var(--color-surface-alt);
+}
+
+/* ── Bento widget grid ───────────────────────────────────── */
+.widget-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "weather iss crypto"
+    "country iss crypto"
+    "quote   quote quote";
+  gap: var(--gap);
+  margin-top: 24px;
+}
+
+/* Widget grid-area assignments */
+.widget--weather  { grid-area: weather; }
+.widget--iss      { grid-area: iss; }
+.widget--crypto   { grid-area: crypto; }
+.widget--country  { grid-area: country; }
+.widget--quote    { grid-area: quote; }
+
+/* ── Tablet breakpoint (640px – 1023px) ──────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .widget-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "weather  crypto"
+      "country  crypto"
+      "iss      iss"
+      "quote    quote";
+  }
+
+  .page-wrapper {
+    padding: 20px var(--gap);
+  }
+}
+
+/* ── Mobile breakpoint (< 640px) ─────────────────────────── */
+@media (max-width: 639px) {
+  .widget-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "weather"
+      "crypto"
+      "iss"
+      "country"
+      "quote";
+  }
+
+  .site-header {
+    padding: 0 16px;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .page-wrapper {
+    padding: 16px;
+  }
+}
