@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse — Live Dashboard</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS (must come before Leaflet JS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/widgets.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-left">
+      <span class="site-logo">Pulse</span>
+    </div>
+    <div class="header-center">
+      <span id="typewriter"></span>
+    </div>
+    <div class="header-right">
+      <div class="clock">
+        <span id="clock-time" class="font-mono"></span>
+        <span id="clock-date" class="font-mono text-muted"></span>
+      </div>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="page-wrapper">
+    <div class="widget-grid">
+
+      <!-- Widget 1 — Weather -->
+      <section class="widget widget--weather" data-aos="fade-up" data-aos-delay="0">
+        <header class="widget-header">
+          <h2 class="widget-title">Weather</h2>
+          <span class="widget-badge">📍 Local</span>
+        </header>
+        <div class="widget-body is-loading" id="weather-content">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </section>
+
+      <!-- Widget 2 — ISS Tracker -->
+      <section class="widget widget--iss" data-aos="fade-up" data-aos-delay="100">
+        <header class="widget-header">
+          <h2 class="widget-title">ISS Tracker</h2>
+          <span class="widget-badge live-badge">LIVE</span>
+        </header>
+        <div class="widget-body is-loading" id="iss-content">
+          <div id="iss-map"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </section>
+
+      <!-- Widget 3 — Crypto Markets -->
+      <section class="widget widget--crypto" data-aos="fade-up" data-aos-delay="200">
+        <header class="widget-header">
+          <h2 class="widget-title">Crypto Markets</h2>
+          <span class="widget-badge">USD</span>
+        </header>
+        <div class="widget-body is-loading" id="crypto-content">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </section>
+
+      <!-- Widget 4 — Country of the Day -->
+      <section class="widget widget--country" data-aos="fade-up" data-aos-delay="300">
+        <header class="widget-header">
+          <h2 class="widget-title">Country of the Day</h2>
+          <span class="widget-badge">🌍 Random</span>
+        </header>
+        <div class="widget-body is-loading" id="country-content">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </section>
+
+      <!-- Widget 5 — Quote -->
+      <section class="widget widget--quote" data-aos="fade-up" data-aos-delay="400">
+        <header class="widget-header">
+          <h2 class="widget-title">Quote</h2>
+          <span class="widget-badge">✦ Daily</span>
+        </header>
+        <div class="widget-body is-loading" id="quote-content">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== SCRIPTS ===== -->
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Toastify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <!-- App entry point (ES module) -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
