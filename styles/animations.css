@@ -1,0 +1,101 @@
+/* ============================================================
+   ANIMATIONS.CSS — Skeleton loaders, transitions, AOS overrides
+   ============================================================ */
+
+/* ── Shimmer keyframe ────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Skeleton line ───────────────────────────────────────── */
+.skeleton-line {
+  height: 1em;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-alt) 25%,
+    var(--color-surface)     50%,
+    var(--color-surface-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Vary widths for a more natural look */
+.skeleton-line:nth-child(1) { width: 75%; }
+.skeleton-line:nth-child(2) { width: 90%; }
+.skeleton-line:nth-child(3) { width: 55%; }
+
+/* ── is-loading state ────────────────────────────────────── */
+.widget-body.is-loading {
+  gap: 12px;
+  justify-content: center;
+  min-height: 80px;
+}
+
+/* ── Pulse-ring keyframe (ISS live badge + marker) ───────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.9; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.1); }
+}
+
+/* Live badge pulse */
+.live-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.live-badge::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ISS map marker */
+.iss-marker {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.iss-marker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* ── Fade transition (country / quote refresh) ───────────── */
+.fade {
+  transition: opacity 0.35s ease;
+}
+
+.fade.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Smooth theme transition ─────────────────────────────── */
+html {
+  transition: background-color 0.3s ease;
+}
