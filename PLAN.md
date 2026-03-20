@@ -551,33 +551,33 @@ Work through these in order. Check each box when the step is fully done and scre
   `<script type="module" src="js/app.js">`.
   - Suggested commit: `feat: add index.html skeleton with all widget placeholders and CDN tags`
 
-- [ ] **Step 02 — Base CSS**
+- [x] **Step 02 — Base CSS**
   Create `styles/base.css`: CSS custom properties on `:root` (light theme) and `html.dark`
   (dark theme) for all colours, fonts, spacing, radius, and shadow. CSS reset. Body background,
   font-family, colour. Typography utility classes (`.font-display`, `.font-mono`, `.text-muted`).
   - Suggested commit: `feat: add base.css with design tokens, reset, and typography`
 
-- [ ] **Step 03 — Layout CSS**
+- [x] **Step 03 — Layout CSS**
   Create `styles/layout.css`: page wrapper, header styles (height, flex, border), bento grid
   with `grid-template-areas` for desktop, tablet breakpoint (640–1023px), mobile breakpoint
   (< 640px), and page padding/max-width.
   - Suggested commit: `feat: add layout.css with bento grid and responsive breakpoints`
 
-- [ ] **Step 04 — Widget CSS**
+- [x] **Step 04 — Widget CSS**
   Create `styles/widgets.css`: `.widget` card base (surface colour, border, shadow, radius,
   padding), `.widget-header` flex row, `.widget-title` font styling, `.widget-badge` and
   `.live-badge` styles, pill/tag styles, forecast strip styles, countdown text style,
   ISS coordinate row style, quote decorative mark style, country flag image style.
   - Suggested commit: `feat: add widgets.css with card styles and all widget-specific rules`
 
-- [ ] **Step 05 — Animations CSS**
+- [x] **Step 05 — Animations CSS**
   Create `styles/animations.css`: `@keyframes shimmer` and `.skeleton-line` skeleton loader,
   `@keyframes pulse-ring` for the ISS live badge, `.fade` transition class for country/quote
   refresh, AOS override rules to respect the colour variables, `is-loading` state on
   `.widget-body` that shows 3 skeleton lines.
   - Suggested commit: `feat: add animations.css with shimmer skeleton, pulse-ring, and fade transitions`
 
-- [ ] **Step 06 — app.js (clock + theme toggle + AOS init)**
+- [x] **Step 06 — app.js (clock + theme toggle + AOS init)**
   Create `js/app.js`: live clock updating every second using `toLocaleTimeString` /
   `toLocaleDateString`, dark/light theme toggle reading/writing `localStorage` key `pulse_theme`,
   AOS initialisation, Typed.js initialisation for the header typewriter, import and call all
@@ -585,14 +585,14 @@ Work through these in order. Check each box when the step is fully done and scre
   in try/catch so the page does not break).
   - Suggested commit: `feat: add app.js with clock, theme toggle, AOS and Typed.js init`
 
-- [ ] **Step 07 — weather.js**
+- [x] **Step 07 — weather.js**
   Create `js/weather.js`: browser geolocation → BigDataCloud reverse geocoding → Open-Meteo
   forecast fetch → render city, current temp, condition emoji, humidity/wind/feels-like pills,
   5-day forecast strip. Temperature unit toggle (°C / °F) reading/writing `localStorage` key
   `pulse_temp_unit`. Toastify toast on unit switch. Fallback to London on geolocation denial.
   - Suggested commit: `feat: add weather.js with Open-Meteo integration and °C/°F toggle`
 
-- [ ] **Step 08 — iss.js**
+- [x] **Step 08 — iss.js**
   Create `js/iss.js`: Leaflet map init with CartoDB Dark Matter tiles, custom ISS `L.divIcon`
   marker with pulse animation, first fetch from `https://api.wheretheiss.at/v1/satellites/25544`,
   polling loop every 5 seconds with `setInterval`, smooth `map.panTo` (only if ISS moved > 0.5°),
