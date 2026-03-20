@@ -1,0 +1,362 @@
+/* ============================================================
+   WIDGETS.CSS — Card base, widget-specific styles
+   ============================================================ */
+
+/* ── Widget card base ────────────────────────────────────── */
+.widget {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+/* ── Widget header ───────────────────────────────────────── */
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.widget-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ── Widget badges ───────────────────────────────────────── */
+.widget-badge {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.live-badge {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* ── Widget body ─────────────────────────────────────────── */
+.widget-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Pills / tags ────────────────────────────────────────── */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* ── Weather widget ──────────────────────────────────────── */
+.weather-location {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.weather-temp {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.weather-condition {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.weather-condition .emoji {
+  font-size: 1.4rem;
+}
+
+.unit-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-alt);
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.unit-toggle:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+/* 5-day forecast strip */
+.forecast-strip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 48px;
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-sm);
+  padding: 8px 4px;
+}
+
+.forecast-day .day-name {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.forecast-day .day-emoji {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.forecast-day .day-temps {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.forecast-day .day-temps .temp-low {
+  color: var(--color-text-muted);
+}
+
+/* ── ISS widget ──────────────────────────────────────────── */
+#iss-map {
+  height: 320px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.iss-coords {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.iss-coords span {
+  white-space: nowrap;
+}
+
+/* ── Crypto widget ───────────────────────────────────────── */
+.crypto-chart-wrap {
+  position: relative;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.crypto-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crypto-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crypto-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.crypto-name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.crypto-name .coin-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.crypto-name .coin-symbol {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.crypto-price {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  text-align: right;
+}
+
+.crypto-change {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  min-width: 54px;
+  text-align: right;
+}
+
+.crypto-change.positive {
+  color: var(--color-positive);
+  background-color: rgba(92, 141, 110, 0.12);
+}
+
+.crypto-change.negative {
+  color: var(--color-negative);
+  background-color: rgba(193, 68, 14, 0.12);
+}
+
+.crypto-countdown {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* ── Country widget ──────────────────────────────────────── */
+.country-flag {
+  width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.country-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.country-region {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.discover-btn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: var(--transition);
+}
+
+.discover-btn:hover {
+  color: var(--color-accent);
+}
+
+/* ── Quote widget ────────────────────────────────────────── */
+.widget--quote {
+  padding: 28px 40px;
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--color-accent);
+  opacity: 0.4;
+  line-height: 0.8;
+  user-select: none;
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.quote-author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.new-quote-btn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  align-self: flex-end;
+  transition: var(--transition);
+}
+
+.new-quote-btn:hover {
+  color: var(--color-accent);
+}
+
+/* ── Error state ─────────────────────────────────────────── */
+.widget-error {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
